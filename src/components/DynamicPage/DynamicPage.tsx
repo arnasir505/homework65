@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axiosApi from '../../axiosApi';
 import { ApiPage } from '../../types';
+import Spinner from '../Spinner/Spinner';
 
 const DynamicPage: React.FC = () => {
   const params = useParams();
@@ -10,9 +11,11 @@ const DynamicPage: React.FC = () => {
     title: '',
     content: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchPage = useCallback(async () => {
     try {
+      setIsLoading(true);
       const response = await axiosApi.get<ApiPage | null>(
         `/pages/${params.id}.json`
       );
@@ -22,8 +25,11 @@ const DynamicPage: React.FC = () => {
       } else {
         navigate('/404');
       }
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }, [params.id]);
 
@@ -31,12 +37,22 @@ const DynamicPage: React.FC = () => {
     void fetchPage();
   }, [fetchPage]);
 
-  return (
-    <div className='container text-light pt-5'>
-      <h1 className='text-center mb-3'>{page.title}</h1>
-      <p className='fs-4 lh-lg'>{page.content}</p>
+  let pageContent = (
+    <div className='mt-5'>
+      <Spinner />
     </div>
   );
+
+  if (page.title && page.content && !isLoading) {
+    pageContent = (
+      <div className='container text-light pt-5'>
+        <h1 className='text-center mb-3'>{page.title}</h1>
+        <p className='fs-4 lh-lg'>{page.content}</p>
+      </div>
+    );
+  }
+
+  return pageContent;
 };
 
 export default DynamicPage;
