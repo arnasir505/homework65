@@ -55,7 +55,7 @@ const PageEditor: React.FC<Props> = ({ titles }) => {
 
   return (
     <div className='container'>
-      <div className='col-md-6'>
+      <div className='col-md-6 text-light'>
         <h2 className='my-3'>Edit Page</h2>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className='mb-3'>
@@ -65,7 +65,7 @@ const PageEditor: React.FC<Props> = ({ titles }) => {
             <select
               name='id'
               id='page'
-              className='form-select'
+              className='form-select bg-dark text-light border-0'
               required
               value={page.id}
               onChange={(e) => (handleSelect(e), handleChange(e))}
@@ -88,7 +88,7 @@ const PageEditor: React.FC<Props> = ({ titles }) => {
               type='text'
               name='title'
               id='title'
-              className='form-control'
+              className='form-control bg-dark text-light border-0'
               required
               value={page.title}
               onChange={(e) => handleChange(e)}
@@ -101,17 +101,14 @@ const PageEditor: React.FC<Props> = ({ titles }) => {
             <textarea
               name='content'
               id='content'
-              className='form-control'
-              rows={3}
+              className='form-control bg-dark text-light border-0'
+              rows={8}
               required
               value={page.content}
               onChange={(e) => handleChange(e)}
             />
           </div>
-          <button
-            type='submit'
-            className={`btn btn-primary ${false ? 'disabled' : ''}`}
-          >
+          <button type='submit' className='btn bg-info fw-bold text-dark '>
             Save
           </button>
         </form>

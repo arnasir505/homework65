@@ -6,6 +6,7 @@ import PageEditor from './components/PageEditor/PageEditor';
 import { useState, useCallback, useEffect } from 'react';
 import axiosApi from './axiosApi';
 import { Title, ApiPages } from './types';
+import './App.css';
 
 function App() {
   const [titles, setTitles] = useState<Title[]>([]);
@@ -32,7 +33,7 @@ function App() {
   }, [fetchTitles]);
 
   return (
-    <>
+    <div className='wrap'>
       <Navbar titles={titles} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -43,7 +44,7 @@ function App() {
           element={<h1 className='text-center mt-5'>Not Found!</h1>}
         />
       </Routes>
-    </>
+    </div>
   );
 }
 

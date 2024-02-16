@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import React from 'react';
 import { Title } from '../../types';
+import './Navbar.css';
 
 interface Props {
   titles: Title[];
@@ -8,21 +9,21 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ titles }) => {
   return (
-    <nav className='navbar navbar-expand bg-white'>
+    <nav className='navbar navbar-expand'>
       <div className='container justify-content-between'>
-        <Link to='/' className='navbar-brand fw-bold'>
-          My Horror Movies
+        <Link to='/' className='navbar-brand fw-bold text-light'>
+          Horror Movies
         </Link>
         <ul className='navbar-nav'>
           {titles.map((item) => (
             <li className='nav-item' key={item.id}>
-              <NavLink className='nav-link' to={`/pages/${item.id}`}>
+              <NavLink className='nav-link text-light' to={`/pages/${item.id}`}>
                 {item.title}
               </NavLink>
             </li>
           ))}
           <li className='nav-item'>
-            <NavLink className='nav-link' to={`/pages/admin`}>
+            <NavLink className='nav-link text-light' to={`/pages/admin`}>
               Admin
             </NavLink>
           </li>

@@ -32,9 +32,9 @@ const DynamicPage: React.FC = () => {
   }, [fetchPage]);
 
   return (
-    <div className='container'>
-      <h1>{page.title}</h1>
-      <p>{page.content}</p>
+    <div className='container text-light pt-5'>
+      <h1 className='text-center mb-3'>{page.title}</h1>
+      <p className='fs-4 lh-lg'>{page.content}</p>
     </div>
   );
 };
