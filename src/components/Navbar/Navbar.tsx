@@ -34,12 +34,17 @@ const Navbar = () => {
         </Link>
         <ul className='navbar-nav'>
           {titles.map((item) => (
-            <li className='nav-item'>
+            <li className='nav-item' key={item.id}>
               <NavLink className='nav-link' to={`/pages/${item.id}`}>
                 {item.title}
               </NavLink>
             </li>
           ))}
+          <li className='nav-item'>
+            <NavLink className='nav-link' to={`/pages/admin`}>
+              Admin
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>

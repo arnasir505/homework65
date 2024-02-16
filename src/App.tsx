@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import GeneralPage from './components/GeneralPage/GeneralPage';
+import DynamicPage from './components/DynamicPage/DynamicPage';
 import Home from './containers/Home/Home';
+import PageEditor from './components/PageEditor/PageEditor';
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/pages' element={<Home />} />
-        <Route path='/pages/:id' element={<GeneralPage />} />
+        <Route path='/pages/:id' element={<DynamicPage />} />
+        <Route path='/pages/admin' element={<PageEditor />} />
         <Route
           path='*'
           element={<h1 className='text-center mt-5'>Not Found!</h1>}

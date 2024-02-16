@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axiosApi from '../../axiosApi';
 import { ApiPage, Page } from '../../types';
 
-const GeneralPage: React.FC = () => {
+const DynamicPage: React.FC = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [page, setPage] = useState<Page>({
@@ -39,4 +39,4 @@ const GeneralPage: React.FC = () => {
   );
 };
 
-export default GeneralPage;
+export default DynamicPage;
