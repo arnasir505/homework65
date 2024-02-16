@@ -4,7 +4,7 @@ export interface ApiPage {
 }
 
 export interface Page extends ApiPage {
-  [id: string]: string;
+  id: string;
 }
 
 export interface ApiPages {

@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axiosApi from '../../axiosApi';
-import { ApiPage, Page } from '../../types';
+import { ApiPage } from '../../types';
 
 const DynamicPage: React.FC = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const [page, setPage] = useState<Page>({
+  const [page, setPage] = useState<ApiPage>({
     title: '',
     content: '',
   });
