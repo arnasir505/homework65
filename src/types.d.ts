@@ -10,3 +10,8 @@ export interface Page extends ApiPage {
 export interface ApiPages {
   [id: string]: ApiPage;
 }
+
+export interface Title {
+  id: string;
+  title: string;
+}
