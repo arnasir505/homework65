@@ -9,7 +9,7 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ titles }) => {
   return (
-    <nav className='navbar navbar-expand'>
+    <nav className='navbar navbar-expand-lg'>
       <div className='container justify-content-between'>
         <Link to='/' className='navbar-brand fw-bold text-light'>
           Horror Movies

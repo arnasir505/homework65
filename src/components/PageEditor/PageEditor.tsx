@@ -55,8 +55,8 @@ const PageEditor: React.FC<Props> = ({ titles }) => {
 
   return (
     <div className='container'>
-      <div className='col-md-6 text-light'>
-        <h2 className='my-3'>Edit Page</h2>
+      <div className='col-md-6 text-light py-3'>
+        <h2 className='mb-3'>Edit Page</h2>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className='mb-3'>
             <label htmlFor='page' className='form-label'>
